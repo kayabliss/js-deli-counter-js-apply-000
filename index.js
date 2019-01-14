@@ -1,14 +1,23 @@
-function takeANumber(line, name) {
-  line.push(name)
-  return  `Welcome, ${name}. You are number ${line.length} in line.`
+var num = 0
+
+function takeANumber(line) {
+  num++
+  
+  line.push(num)
+  return  `Welcome, you are number ${num}.`
 }
 
-function nowServing(line){
-  if (line <= 0 ) {
-    return "There is nobody waiting to be served!"; 
+const line = []
+console.log(takeANumber(line)) // 1
+console.log(takeANumber(line)) // 2
+console.log(takeANumber(line)) // 3
 
- } 
- return `Currently serving ${line.shift()}.`
+function nowServing(line){
+  if (line.length <= 0 ) {
+    return "There is nobody waiting to be served!"; 
+  } 
+  
+  return `Currently serving ${line.shift()}.`
   
 }
 
@@ -18,7 +27,7 @@ function currentLine(line){
   } else {
     var arr = [];
     for (let i = 0; i < line.length; i++ )
-    arr.push(`${i + 1}. ${line[i]}`);
+      arr.push(`${i + 1}. ${line[i]}`);
   
   }  
   return `The line is currently: ${arr.join(', ')}`
